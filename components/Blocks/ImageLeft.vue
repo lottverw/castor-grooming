@@ -4,7 +4,7 @@
             <img class="rounded-md w-full" :src="imageSrc"/>
         </div>
         <div class="">
-            <h1 class="text-xl font-bold mb-3">{{ title }}</h1>
+            <h1 v-if="title" class="text-xl font-bold mb-3">{{ title }}</h1>
             <p class="mb-3">{{ content }}</p>
             <slot></slot>
         </div>
@@ -14,7 +14,7 @@
 <script setup lang="ts">
 
 defineProps<{
-    title: string, 
+    title?: string, 
     content: string,
     imageSrc: string
 }>()
