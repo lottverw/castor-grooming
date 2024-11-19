@@ -1,0 +1,10 @@
+@use './fonts.scss'; 
+
+@tailwind base;    
+@tailwind components; 
+@tailwind utilities; 
+
+// Apply Tailwind's utilities with SCSS nesting
+body {
+    @apply font-sans; // Apply Tailwind utility class globally
+  }
