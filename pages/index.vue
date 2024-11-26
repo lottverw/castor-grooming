@@ -1,17 +1,19 @@
 <template>
     <Heading></Heading>
-    <BlocksImageLeft 
-            imageSrc="https://images.pexels.com/photos/19145898/pexels-photo-19145898/free-photo-of-groomer-cutting-dogs-hair.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
-        :content="introText">
-        <Button >Boek een afspraak</Button>
-        <Button  variant="secondary" to="/het-salon">Ontdek het salon</Button>
+    <BlocksImageLeft title="Castor grooming" imageSrc="nele.jpeg" :content="introText">
+        <Button>Boek een afspraak</Button>
+        <Button variant="secondary" to="/het-salon">Ontdek het salon</Button>
     </BlocksImageLeft>
-    <BlocksBanner class="grid grid-cols-6">
-        <BlocksService title="Ontwollen" content="Een ontwolbehandeling helpt bij het verwijderen van overtollige ondervacht. Dit vermindert losse haren in huis en houdt de vacht gezond en luchtig. Ideaal voor honden met een dubbele vacht!" imageSrc="https://images.pexels.com/photos/6131576/pexels-photo-6131576.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"></BlocksService>
-        <BlocksService title="Katten trimmen" content="Katvriendelijk trimmen zonder stress. Denk aan het verwijderen van klitten, het verzorgen van een vervilte vacht of een volledige scheerbeurt. Perfect voor een glanzende, gezonde vacht." imageSrc="https://images.pexels.com/photos/29437597/pexels-photo-29437597/free-photo-of-close-up-of-a-calico-cat-in-the-sunlight.jpeg?auto=compress&cs=tinysrgb&w=600"></BlocksService>
-        <BlocksService title="Honden trimmen" content="Professioneel trimmen op maat voor elke hond. Van knippen tot scheren of plukken, afhankelijk van het ras en de vacht. Jouw hond loopt er weer piekfijn bij!" imageSrc="https://images.pexels.com/photos/19145893/pexels-photo-19145893/free-photo-of-dog-groomer-at-work.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"></BlocksService>
+    <BlocksBanner class=" lg:-mt-32">
+        <section aria-label="services" class="container flex flex-column md:flex-row flex-wrap md:justify-center lg:gap-5 mx-auto">
+            <BlocksService class="w-11/12 mx-auto md:w-3/12" v-for="service in services" :title="service.title"
+                :content="service.intro">
+            </BlocksService>
+            <div class="w-full text-center mt-5">
+                <Button to="/behandelingen" variant="primary" class="mx-auto text-center">Ontdek behandeling</Button>
+            </div>
+        </section>
     </BlocksBanner>
-
 
 </template>
 
@@ -19,6 +21,31 @@
 definePageMeta({
     "title": "Castor Grooming | Home"
 })
-const introText = "Mijn naam is Nele Van de Wouwer, en ik ben de trotse eigenaar van Castor Grooming, een trimsalon voor honden en katten. Sinds 2016 heb ik ervaring en een passie voor dierenverzorging. Het is mijn missie om jouw huisdier met de grootste zorg en liefde te behandelen, zodat ze altijd weer stralend en gelukkig de salon verlaten.";
+const introText = "Mijn naam is Nele Van de Wouwer, en ik ben de trotse eigenaar van Castor Grooming, een trimsalon voor honden en katten. Sinds 2016 heb ik ervaring en een passie voor dierenverzorging. Het is mijn missie om jouw huisdier met de grootste zorg en liefde te behandelen, zodat ze altijd weer stralend en gelukkig de salon verlaten. Als dierenliefhebber was het voor mij een logische keuze om de wereld van de trimsalon in te duiken. Sinds het begin heb ik mijn vak leren kennen met liefde, geduld en aandacht voor detail. Ik streef er altijd naar om elke trimbeurt zo stressvrij mogelijk te maken voor zowel het dier als de eigenaar. Mijn doel is niet alleen om jouw huisdier mooi en verzorgd te maken, maar ook om ervoor te zorgen dat ze zich op hun gemak voelen.";
+
+const services = [
+    {
+        title: "Knippen en Scheren",
+        intro:
+            "Regelmatig knippen of scheren houdt de vacht van je hond in topvorm en bevordert de gezondheid van de vacht en huid.",
+        volledigeOmschrijving:
+            "Sommige honden hebben een vacht die regelmatig geknipt of geschoren moet worden om deze in topvorm te houden. Wij gebruiken de juiste technieken en materialen om jouw huisdier een frisse, nette look te geven. Dit is niet alleen voor esthetische doeleinden, maar ook om de gezondheid van de vacht en huid te bevorderen. Bij het knippen en scheren zorgen we ervoor dat de vacht op de juiste lengte wordt gebracht, afhankelijk van het ras en de behoefte van je huisdier. Voor langharige rassen of dieren die gevoelig zijn voor hitte, kan een kortere vacht een oplossing zijn voor hun comfort. We scheren met zorg, waarbij we altijd de gezondheid van je huisdier in gedachten houden.",
+    },
+    {
+        title: "Trimmen en Plukken",
+        intro:
+            "Speciaal voor honden met een plukvacht, zoals terriërs, waarbij dode haarwortels worden verwijderd voor een gezonde vacht.",
+        volledigeOmschrijving:
+            "Trimmen en plukken is een techniek die specifiek is voor bepaalde rassen die een zogenaamde 'dubbele vacht' of 'plukvacht' hebben, zoals de terriërs of de schnauzers. In tegenstelling tot knippen of scheren, wordt bij het trimmen en plukken de dode haarwortels voorzichtig verwijderd, zodat de vacht op een natuurlijke manier blijft groeien en in topvorm blijft. Deze techniek zorgt ervoor dat de vacht van je huisdier niet in de war raakt, wat kan leiden tot vervilting of huidaandoeningen. Het plukken van de vacht helpt de luchtcirculatie naar de huid, wat bijdraagt aan een gezonde en glanzende vacht. Het is een vak apart, en deze fijne kneepjes heb ik geleerd bij Nancy Van Crean, gespecialiseerd in trimmen. Zodat jouw huisdier altijd de beste zorg krijgt, op maat van je hond.",
+    },
+    {
+        title: "Ontwollen van Honden",
+        intro:
+            "Het zorgvuldig verwijderen van wol en knopen uit de vacht om de huid gezond te houden en het ruien te versnellen.",
+        volledigeOmschrijving:
+            "Voor honden met een dichte, wollige vacht kan het ontwollen van de vacht een essentiële stap zijn in de verzorging. Ontwollen is een proces waarbij de knopen en wol in de vacht zorgvuldig worden verwijderd, zonder dat de vacht beschadigd raakt. Door de was- en blaastechniek wordt de huid gezond gehouden en ongemak voor je huisdier voorkomen. Dit proces helpt ook om sneller door de ruiperiode te gaan, wat resulteert in minder haar in huis. Klitten en wol kunnen niet alleen het uiterlijk van je hond beïnvloeden, maar ze kunnen ook de huid verstikken en irritatie veroorzaken. Daarom besteden we veel aandacht aan het zorgvuldig ontwollen van je huisdier, zodat de vacht weer zacht, glanzend en klitvrij is. Dit kan wat tijd kosten, maar we nemen de tijd om ervoor te zorgen dat je hond comfortabel en zonder stress geholpen wordt. Standaard zitten nagels knippen, haren uit de oren plukken en anaalklieren ledigen bij een trimbeurt inbegrepen.",
+    },
+];
+
 
 </script>
