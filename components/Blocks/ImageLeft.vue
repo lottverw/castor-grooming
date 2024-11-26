@@ -1,21 +1,37 @@
 <template>
-    <div class="py-10 md:grid gap-12 grid-cols-4 align-items-center">
-        <div class="col-start-2">
-            <img class="rounded-md w-full" :src="imageSrc"/>
-        </div>
-        <div class="">
-            <h1 v-if="title" class="text-xl font-bold mb-3">{{ title }}</h1>
-            <p class="mb-3">{{ content }}</p>
-            <slot></slot>
+    <div class="container mx-auto pt-8">
+        <div class="justify-items-center items-center flex flex-col md:flex-row md:gap-10 lg:gap-3">
+            <div class="w-10/12 mx-auto mb-3 md:mb-0 md:w-5/12 z-0 ">
+                <img class="rounded-full md:max-w-full lg:max-w-lg mx-auto animate-fade" v-if="isReady" :src="image" />
+            </div>
+            <div class="w-10/12 mx-auto md:w-7/12 z-10">
+                <div class="lg:py-24 animate-fade-up ">
+                    <h1 v-if="title" class="text-xl mb-3 text-primary-600">{{ title }}</h1>
+                    <p class="mb-4">{{ content }}</p>
+                    <slot></slot>
+                </div>
+            </div>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
 
-defineProps<{
-    title?: string, 
+const props = defineProps<{
+    title?: string,
     content: string,
     imageSrc: string
 }>()
+
+let isReady = ref(false)
+
+const image = computed(() => {
+    return new URL(`/assets/images/${props.imageSrc}`, import.meta.url).href;
+});
+
+setTimeout(() => {
+    isReady.value = true
+}, 250)
+
+
 </script>

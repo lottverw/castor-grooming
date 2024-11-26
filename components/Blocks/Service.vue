@@ -1,6 +1,6 @@
 <template>
-    <div class="grid grid-cols-1">
-        <img :src="imageSrc" class="w-18 h-18 rounded-full mb-3" />        <h2>{{ title }}</h2>
+    <div class="mb-3 lg:mb-0">
+        <h2 class="text-lg font-bold">{{ title }}</h2>
         <p>{{ content  }}</p>
     </div>
 </template>
@@ -10,6 +10,6 @@
 defineProps<{
     title: string, 
     content: string,
-    imageSrc: string
+    imageSrc?: string
 }>()
 </script>
