@@ -1,10 +1,16 @@
-@use './fonts.scss'; 
+@use "./fonts.scss";
 
-@tailwind base;    
-@tailwind components; 
-@tailwind utilities; 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 // Apply Tailwind's utilities with SCSS nesting
 body {
-    @apply font-sans; // Apply Tailwind utility class globally
+  @apply font-sans; // Apply Tailwind utility class globally
+}
+
+.blob {
+  -webkit-mask-image: url('~/assets/images/blob.svg'); /* Nuxt alias for Vite */
+  mask-image: url('~/assets/images/blob.svg');
+  mask-repeat: no-repeat;
   }
