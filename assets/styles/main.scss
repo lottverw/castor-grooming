@@ -9,8 +9,6 @@ body {
   @apply font-sans; // Apply Tailwind utility class globally
 }
 
-.blob {
-  -webkit-mask-image: url('~/assets/images/blob.svg'); /* Nuxt alias for Vite */
-  mask-image: url('~/assets/images/blob.svg');
-  mask-repeat: no-repeat;
-  }
+.debug {
+  border: 1px solid red;
+}

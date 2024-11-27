@@ -1,6 +1,10 @@
 module.exports = {
   content: ["./pages/**/*.{vue,js}", "./components/**/*.{vue,js}"],
   theme: {
+    container: {
+      center: true,
+      padding: '2rem',
+    },
     extend: {
       colors: {
         primary: "hsl(326.95, 95.9%, 38.24%)",
