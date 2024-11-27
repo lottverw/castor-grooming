@@ -1,11 +1,12 @@
 <template>
     <Heading></Heading>
-    <BlocksImageLeft title="Castor grooming" imageSrc="nele.jpeg" :content="introText">
+    <BlocksImageCircleLeft title="Castor grooming" imageSrc="nele.jpeg" :content="introText">
         <Button>Boek een afspraak</Button>
         <Button variant="secondary" to="/het-salon">Ontdek het salon</Button>
-    </BlocksImageLeft>
+    </BlocksImageCircleLeft>
     <BlocksBanner class=" lg:-mt-32">
-        <section aria-label="services" class="container flex flex-column md:flex-row flex-wrap md:justify-center lg:gap-5 mx-auto">
+        <section aria-label="services"
+            class="container flex flex-column md:flex-row flex-wrap md:justify-center lg:gap-5">
             <BlocksService class="w-11/12 mx-auto md:w-3/12" v-for="service in services" :title="service.title"
                 :content="service.intro">
             </BlocksService>
@@ -14,9 +15,28 @@
             </div>
         </section>
     </BlocksBanner>
+    <BlocksBullets class=""></BlocksBullets>
+    <section class="bg-primary-50 pt-72 pb-32 flex justify-center gap-20 -mt-56">
+        <BlocksImageText class="w-3/12" imageSrc="cat-1.jpeg" position="left" title="Katten trimmen" text="Katten zijn van nature zeer verzorgende dieren, maar sommige rassen hebben
+extra hulp nodig om hun vacht in topconditie te houden. Trimmen helpt niet
+alleen om klitten en vervilting te voorkomen, maar het zorgt er ook voor dat de
+huid goed kan ademenen en dat er geen ongemakkelijke of pijnlijke matten
+ontstaan."><Button>Katten trimmer</Button>
+        </BlocksImageText>
 
+        <BlocksImageText class="w-3/12 mt-32" imageSrc="puppie.jpeg" position="right" title="Puppie gewenning" text="Veel huisdieren hebben een beetje tijd nodig om te wennen aan de nieuwe geluiden,
+geuren en het omgaan met vreemde mensen in een trimsalon. Dit geldt met name
+voor dieren die voor het eerst een trimbeurt ondergaan of die nog niet veel ervaring
+hebben met een trimsalon. Gewenning helpt de stress te verminderen en zorgt
+ervoor dat het trimproces soepeler verloopt.">
+            <Button>Over salon gewenning</Button>
+        </BlocksImageText>
+    </section>
+
+    <section>
+        <div class="salonized-booking" data-company="Lo7t2jQiEu7pJC3tSXEhc5Mg" data-color="#bf046b" data-language="nl" data-height="700" data-inline="true" ></div>
+    </section>
 </template>
-
 <script setup lang="ts">
 definePageMeta({
     "title": "Castor Grooming | Home"
@@ -46,6 +66,17 @@ const services = [
             "Voor honden met een dichte, wollige vacht kan het ontwollen van de vacht een essentiële stap zijn in de verzorging. Ontwollen is een proces waarbij de knopen en wol in de vacht zorgvuldig worden verwijderd, zonder dat de vacht beschadigd raakt. Door de was- en blaastechniek wordt de huid gezond gehouden en ongemak voor je huisdier voorkomen. Dit proces helpt ook om sneller door de ruiperiode te gaan, wat resulteert in minder haar in huis. Klitten en wol kunnen niet alleen het uiterlijk van je hond beïnvloeden, maar ze kunnen ook de huid verstikken en irritatie veroorzaken. Daarom besteden we veel aandacht aan het zorgvuldig ontwollen van je huisdier, zodat de vacht weer zacht, glanzend en klitvrij is. Dit kan wat tijd kosten, maar we nemen de tijd om ervoor te zorgen dat je hond comfortabel en zonder stress geholpen wordt. Standaard zitten nagels knippen, haren uit de oren plukken en anaalklieren ledigen bij een trimbeurt inbegrepen.",
     },
 ];
+
+onMounted(() => {
+  const script = document.createElement('script');
+  script.src = 'https://static-widget.salonized.com/loader.js';
+  script.async = true;
+  script.onload = () => {
+    console.log('Salonized plugin geladen');
+  };
+  document.head.appendChild(script);
+});
+
 
 
 </script>
