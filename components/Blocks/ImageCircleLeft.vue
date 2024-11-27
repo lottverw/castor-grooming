@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto pt-8">
+    <div class="container pt-8">
         <div class="justify-items-center items-center flex flex-col md:flex-row md:gap-10 lg:gap-3">
             <div class="w-10/12 mx-auto mb-3 md:mb-0 md:w-5/12 z-0 ">
                 <img class="rounded-full md:max-w-full lg:max-w-lg mx-auto animate-fade" v-if="isReady" :src="image" />
