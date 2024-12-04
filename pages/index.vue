@@ -5,7 +5,7 @@
         <Button variant="secondary" to="/het-salon">Ontdek het salon</Button>
     </BlocksImageCircleLeft>
     <BlocksBanner class=" lg:-mt-32">
-        <section aria-label="services"
+        <Motion is="section" preset="fadeVisibleOnce" aria-label="services"
             class="container flex flex-column md:flex-row flex-wrap md:justify-center lg:gap-5">
             <BlocksService class="w-11/12 mx-auto md:w-3/12" v-for="service in services" :title="service.title"
                 :content="service.intro">
@@ -13,18 +13,19 @@
             <div class="w-full text-center mt-5">
                 <Button to="/behandelingen" variant="primary" class="mx-auto text-center">Ontdek behandeling</Button>
             </div>
-        </section>
+        </Motion>
     </BlocksBanner>
-    <BlocksBullets class=""></BlocksBullets>
-    <section class="bg-primary-50 pt-72 pb-32 flex justify-center gap-20 -mt-56">
-        <BlocksImageText class="w-3/12" imageSrc="cat-1.jpeg" position="left" title="Katten trimmen" text="Katten zijn van nature zeer verzorgende dieren, maar sommige rassen hebben
+    <BlocksBullets title="Waarom kiezen voor castor grooming?" :bullets="usps" class=""></BlocksBullets>
+    <section class="bg-gray-50 pt-72 pb-32 flex-col md:-mb-64 md:flex-row flex justify-center md:gap-20 -mt-56">
+        <BlocksImageText class="w-11/12 md:w-4/12" imageSrc="cat-1.jpeg" position="left" title="Katten trimmen" text="Katten zijn van nature zeer verzorgende dieren, maar sommige rassen hebben
 extra hulp nodig om hun vacht in topconditie te houden. Trimmen helpt niet
 alleen om klitten en vervilting te voorkomen, maar het zorgt er ook voor dat de
 huid goed kan ademenen en dat er geen ongemakkelijke of pijnlijke matten
 ontstaan."><Button>Katten trimmer</Button>
         </BlocksImageText>
 
-        <BlocksImageText class="w-3/12 mt-32" imageSrc="puppie.jpeg" position="right" title="Puppie gewenning" text="Veel huisdieren hebben een beetje tijd nodig om te wennen aan de nieuwe geluiden,
+        <BlocksImageText class="w-11/12 md:w-4/12 border-b border-gray-200" imageSrc="puppie.jpeg" position="right"
+            title="Puppie gewenning" text="Veel huisdieren hebben een beetje tijd nodig om te wennen aan de nieuwe geluiden,
 geuren en het omgaan met vreemde mensen in een trimsalon. Dit geldt met name
 voor dieren die voor het eerst een trimbeurt ondergaan of die nog niet veel ervaring
 hebben met een trimsalon. Gewenning helpt de stress te verminderen en zorgt
@@ -34,10 +35,12 @@ ervoor dat het trimproces soepeler verloopt.">
     </section>
 
     <section>
-        <div class="salonized-booking" data-company="Lo7t2jQiEu7pJC3tSXEhc5Mg" data-color="#bf046b" data-language="nl" data-height="700" data-inline="true" ></div>
+        <div class="salonized-booking" data-company="Lo7t2jQiEu7pJC3tSXEhc5Mg" data-color="#bf046b" data-language="nl"
+            data-height="700" data-inline="true"></div>
     </section>
 </template>
 <script setup lang="ts">
+
 definePageMeta({
     "title": "Castor Grooming | Home"
 })
@@ -67,14 +70,31 @@ const services = [
     },
 ];
 
+
+const usps = [
+    {
+        title: "Ervaren Trimmester",
+        description: "Ik ben gecertificeerd en heb sinds 2016 jaren ervaring in het trimmen van verschillende honden- en kattenrassen."
+    }, {
+        title: "Dierenwelzijn",
+        description: "Jouw huisdier komt altijd eerst. Ik streef ervoor dat iedere behandeling zo stressvrij en comfortabel mogelijk is."
+    }, {
+        title: "Persoonlijke Aandacht",
+        description: "Elk dier is uniek en verdient persoonlijke aandacht. IK neem de tijd voor een op maat gemaakte behandeling die het beste bij jou huisdier past."
+    }, {
+        title: "Juiste Techniek",
+        description: "Van het scheren tot het plukken of ontwollen, gebruiken van de juiste technieken en tools voor een optimaal resultaat."
+    }
+]
+
 onMounted(() => {
-  const script = document.createElement('script');
-  script.src = 'https://static-widget.salonized.com/loader.js';
-  script.async = true;
-  script.onload = () => {
-    console.log('Salonized plugin geladen');
-  };
-  document.head.appendChild(script);
+    const script = document.createElement('script');
+    script.src = 'https://static-widget.salonized.com/loader.js';
+    script.async = true;
+    script.onload = () => {
+        console.log('Salonized plugin geladen');
+    };
+    document.head.appendChild(script);
 });
 
 
