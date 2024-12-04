@@ -1,5 +1,5 @@
 <template>
-    <div class="mb-10 md:mb-0 rounded ">
+      <Motion is="div" preset="fadeVisibleOnce" class="mb-10 md:mb-0 rounded ">
         <div class="overflow-hidden h-64 rounded-t">
             <img class="" v-if="isReady" :src="image" />
         </div>
@@ -8,7 +8,7 @@
             <p class="mb-7">{{ text }}</p>
             <slot></slot>
         </div>
-    </div>
+    </Motion>
 </template>
 
 <script setup lang="ts">

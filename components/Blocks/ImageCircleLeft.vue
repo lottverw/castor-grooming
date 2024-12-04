@@ -1,17 +1,17 @@
 <template>
     <div class="container pt-8">
-        <div class="justify-items-center items-center flex flex-col md:flex-row md:gap-10 lg:gap-3">
-            <div class="w-10/12 mx-auto mb-3 md:mb-0 md:w-5/12 z-0 ">
-                <img class="rounded-full md:max-w-full lg:max-w-lg mx-auto animate-fade" v-if="isReady" :src="image" />
+        <Motion is="div" preset="fadeVisibleOnce"  class="justify-items-center items-center flex flex-col md:flex-row md:gap-10 lg:gap-3" >
+            <div class="w-10/12 mx-auto my-3md:mb-0 md:w-5/12 z-0 ">
+                <img class="rounded-full md:max-w-full lg:max-w-lg mx-auto" v-if="isReady" :src="image" />
             </div>
             <div class="w-10/12 mx-auto md:w-7/12 z-10">
-                <div class="lg:py-24 animate-fade-up ">
-                    <h1 v-if="title" class="text-xl mb-3 text-primary-600">{{ title }}</h1>
+                <div class="lg:py-24">
+                    <h1 v-if="title" class="text-xl my-3text-primary-600">{{ title }}</h1>
                     <p class="mb-4">{{ content }}</p>
                     <slot></slot>
                 </div>
             </div>
-        </div>
+        </Motion>
     </div>
 </template>
 
@@ -31,7 +31,7 @@ const image = computed(() => {
 
 setTimeout(() => {
     isReady.value = true
-}, 250)
+}, 800)
 
 
 </script>

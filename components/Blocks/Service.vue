@@ -1,5 +1,5 @@
 <template>
-    <div class="mb-3 lg:mb-0">
+    <div class="my-3lg:mb-0"  preset="fadeVisibleOnce" >
         <h2 class="text-lg font-bold">{{ title }}</h2>
         <p>{{ content  }}</p>
     </div>

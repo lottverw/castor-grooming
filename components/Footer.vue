@@ -32,7 +32,5 @@
 </template>
 
 <script setup>
-
 const { data } = useContact();
-console.log('dbg', data);
 </script>
